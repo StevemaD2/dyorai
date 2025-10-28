@@ -1,26 +1,57 @@
 'use client';
 
-import { ConnectWallet, lightTheme } from '@thirdweb-dev/react';
-import { useAddress } from '@thirdweb-dev/react';
+import { useAppContext } from '@/components/providers/app-provider';
+import { Button } from '@/components/ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { truncateAddress } from '@/lib/utils';
 
-const customTheme = lightTheme({
-  colors: {
-    accentText: 'hsl(var(--accent-foreground))',
-    accentButtonBg: 'hsl(var(--accent))',
-    modalBg: 'hsl(var(--background))',
-    primaryText: 'hsl(var(--foreground))',
-    secondaryText: 'hsl(var(--muted-foreground))',
-    borderColor: 'hsl(var(--border))',
-    separatorLine: 'hsl(var(--border))',
-    secondaryButtonBg: 'hsl(var(--secondary))',
-    secondaryButtonText: 'hsl(var(--secondary-foreground))',
-    connectedButtonBg: 'hsl(var(--secondary))',
-    connectedButtonBgHover: 'hsl(var(--muted))',
-  },
-});
+function ConnectButton() {
+  const { isConnected, setIsConnected, address, setAddress } = useAppContext();
+
+  const handleConnect = () => {
+    // Mock connection logic
+    setIsConnected(true);
+    setAddress('0x1234...5678');
+  };
+
+  const handleDisconnect = () => {
+    setIsConnected(false);
+    setAddress(null);
+  };
+
+  if (isConnected) {
+    return (
+      <Button variant="secondary" onClick={handleDisconnect}>
+        Disconnect {address ? `(${truncateAddress(address)})` : ''}
+      </Button>
+    );
+  }
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button>Connect</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        <DropdownMenuLabel>Connect a Wallet</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem onClick={handleConnect}>New on Crypto</DropdownMenuItem>
+        <DropdownMenuItem onClick={handleConnect}>EVM</DropdownMenuItem>
+        <DropdownMenuItem onClick={handleConnect}>Solana</DropdownMenuItem>
+        <DropdownMenuItem onClick={handleConnect}>Bitcoin</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
 
 export default function Header() {
-  const address = useAddress();
 
   const getGreeting = () => {
     const hours = new Date().getHours();
@@ -37,11 +68,7 @@ export default function Header() {
         </h1>
         <p className="text-sm text-muted-foreground">Welcome to DyorAI, your crypto co-pilot.</p>
       </div>
-      <ConnectWallet
-        theme={customTheme}
-        btnTitle="Connect Wallet"
-        modalSize="compact"
-      />
+      <ConnectButton />
     </header>
   );
 }

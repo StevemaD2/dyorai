@@ -1,11 +1,11 @@
 'use client';
 
+import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
 import { Bot, Loader, Send, User } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { getOnboardingResponse } from '@/app/actions';
 import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
@@ -38,7 +38,11 @@ export default function AiChat({ isConnected }: AiChatProps) {
     setInput('');
     setIsLoading(true);
 
-    const response = await getOnboardingResponse({ query: input, isWalletConnected: isConnected });
+    // Mock response for now
+    const response = `This is a mock response for: "${input}". The actual AI action is not yet implemented.`;
+    await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate network delay
+
+    // const response = await getOnboardingResponse({ query: input, isWalletConnected: isConnected });
 
     const assistantMessage: Message = { role: 'assistant', content: response };
     setMessages((prev) => [...prev, assistantMessage]);
@@ -68,7 +72,8 @@ export default function AiChat({ isConnected }: AiChatProps) {
             >
               {message.role === 'assistant' && (
                 <Avatar className="w-8 h-8">
-                  <AvatarFallback><Bot size={18}/></AvatarFallback>
+                  <AvatarImage src="/icon.png" alt="AI Avatar" />
+                  <AvatarFallback><Bot size={18} /></AvatarFallback>
                 </Avatar>
               )}
               <div
@@ -91,7 +96,8 @@ export default function AiChat({ isConnected }: AiChatProps) {
           {isLoading && (
             <div className="flex items-start gap-3 justify-start">
               <Avatar className="w-8 h-8">
-                <AvatarFallback><Bot size={18}/></AvatarFallback>
+                <AvatarImage src="/icon.png" alt="AI Avatar" />
+                <AvatarFallback><Bot size={18} /></AvatarFallback>
               </Avatar>
               <div className="rounded-lg p-3 bg-muted flex items-center">
                 <Loader className="w-4 h-4 animate-spin" />

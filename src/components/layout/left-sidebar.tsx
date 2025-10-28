@@ -1,7 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { Bot, LayoutDashboard, Menu, WalletCards } from 'lucide-react';
+import { AreaChart,
+  BookOpen,
+  Bot,
+  LayoutDashboard,
+  Menu,
+  Settings,
+  WalletCards, } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
 import { cn } from '@/lib/utils';
@@ -24,6 +30,24 @@ const navLinks = [
     href: '/portfolio',
     icon: WalletCards,
     label: 'Portfolio',
+    requiresConnection: true,
+  },
+  {
+    href: '/markets',
+    icon: AreaChart,
+    label: 'Markets',
+    requiresConnection: true,
+  },
+  {
+    href: '/tutorials',
+    icon: BookOpen,
+    label: 'Tutorials',
+    requiresConnection: true,
+  },
+  {
+    href: '/settings',
+    icon: Settings,
+    label: 'Settings',
     requiresConnection: true,
   },
 ];

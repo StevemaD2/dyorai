@@ -1,0 +1,34 @@
+{
+  "placeholderImages": [
+    {
+      "id": "ai-avatar",
+      "description": "AI agent avatar",
+      "imageUrl": "https://images.unsplash.com/photo-1633957897986-70e83293f3ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyb2JvdCUyMGF2YXRhcnxlbnwwfHx8fDE3NjE2NjU0NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "robot avatar"
+    },
+    {
+      "id": "welcome-1",
+      "description": "Abstract graphic for welcome card 1",
+      "imageUrl": "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhYnN0cmFjdCUyMHRlY2h8ZW58MHx8fHwxNzYxNTg5MDUyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract tech"
+    },
+    {
+      "id": "welcome-2",
+      "description": "Abstract graphic for welcome card 2",
+      "imageUrl": "https://images.unsplash.com/photo-1633188985850-41c3c2ba9c2b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YWJzdHJhY3QlMjBjcnlwdG98ZW58MHx8fHwxNzYxNTg5MzQyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract crypto"
+    },
+    {
+      "id": "dashboard-portfolio",
+      "description": "Chart for portfolio performance",
+      "imageUrl": "https://images.unsplash.com/photo-1745509267945-b25cbb4d50ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmaW5hbmNlJTIwY2hhcnR8ZW58MHx8fHwxNzYxNjY5MjE3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "finance chart"
+    },
+    {
+      "id": "dashboard-market",
+      "description": "Graph for market trends",
+      "imageUrl": "https://images.unsplash.com/photo-1651340981821-b519ad14da7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzdG9jayUyMG1hcmtldHxlbnwwfHx8fDE3NjE2MzYwNzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "stock market"
+    }
+  ]
+}
